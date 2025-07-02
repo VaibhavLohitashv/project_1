@@ -1,0 +1,22 @@
+<header>
+  <h1 routerLink="/home">Centum</h1>
+  <nav>
+    <a class="link" routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <a class="link" routerLink="/about" routerLinkActive="active">About Us</a>
+    @if (isLoggedIn) {
+      <a class="link" routerLink="/profile" routerLinkActive="active">Profile</a>
+    }
+  </nav>
+  <div class="search-container">
+    <input type="search" placeholder="Search keywords...">
+    <button type="submit">Search</button>
+  </div>
+  <div class="auth-buttons-container">
+    @if (isLoggedIn) {
+      <button routerLink="/logout">Logout</button>
+    } @else {
+      <button routerLink="/login">Login</button>
+      <button routerLink="/signup">Signup</button>
+    }
+  </div>
+</header>

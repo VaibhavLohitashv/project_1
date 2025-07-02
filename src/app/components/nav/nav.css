@@ -1,0 +1,78 @@
+header {
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1:hover {
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+  align-content: center;
+  text-wrap: nowrap;
+}
+
+.link:hover {
+  cursor: pointer;
+}
+
+.active {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 1rem;
+  text-decoration-color: #0002ff;
+}
+
+.search-container {
+  display: flex;
+}
+
+.search-container input, button {
+  border: none;
+  background: none;
+  color: white;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: lighter;
+  outline: none;
+}
+
+.search-container input:focus {
+  background-image: linear-gradient(to right, transparent, rgba(0, 2, 255, 0.3), transparent);
+}
+
+.search-container button:hover {
+  background: rgba(0, 2, 255, 0.20);
+  cursor: pointer;
+}
+
+.auth-buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
+.auth-buttons-container > button {
+  background: none;
+  color: white;
+  border: none;
+  padding: 1rem;
+}
+
+.auth-buttons-container > button:hover {
+  background: rgba(0, 2, 255, 0.20);
+  border-radius: 0.2rem;
+  cursor: pointer;
+  color: white;
+}

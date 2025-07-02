@@ -1,0 +1,63 @@
+<section>
+  <h2>Create your free <span>Centum</span> account</h2>
+  <div class="signup-container">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+      <!-- First Name -->
+      <div>
+        <input formControlName="firstName" placeholder="First Name" type="text">
+        @if (signupForm.get('firstName')?.touched && signupForm.get('firstName')?.hasError('required')) {
+        <span>First name is required</span>
+        }
+      </div>
+
+      <!-- Last Name -->
+      <div>
+        <input formControlName="lastName" placeholder="Last Name" type="text">
+        @if (signupForm.get('lastName')?.touched && signupForm.get('lastName')?.hasError('required')) {
+        <span>Last name is required</span>
+        }
+      </div>
+
+      <!-- Email -->
+      <div>
+        <input formControlName="email" placeholder="Email" type="email">
+        @if (signupForm.get('email')?.touched && signupForm.get('email')?.hasError('required')) {
+        <span>Email is required</span>
+        }
+        @if (signupForm.get('email')?.touched && signupForm.get('email')?.hasError('email')) {
+        <span>Invalid email format</span>
+        }
+      </div>
+
+      <!-- Password -->
+      <div>
+        <input formControlName="password" placeholder="Password" type="password">
+        @if (signupForm.get('password')?.touched && signupForm.get('password')?.hasError('required')) {
+        <span>Password is required</span>
+        }
+        @if (signupForm.get('password')?.touched && signupForm.get('password')?.hasError('minlength')) {
+        <span>Password must be at least 6 characters</span>
+        }
+        @if (signupForm.get('password')?.touched && signupForm.get('password')?.hasError('pattern')) {
+        <span>Password must include uppercase, lowercase, number, and special character</span>
+        }
+      </div>
+
+      <!-- Confirm Password -->
+      <div>
+        <input formControlName="confirmPassword" placeholder="Confirm Password" type="password">
+        @if (signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.hasError('required')) {
+        <span>Confirm password is required</span>
+        }
+        @if (signupForm.errors?.['passwordMismatch'] && signupForm.get('confirmPassword')?.touched) {
+        <span>Passwords do not match</span>
+        }
+      </div>
+
+      <button type="submit" [disabled]="signupForm.invalid" [ngClass]="signupForm.invalid?'disabled':''">Sign
+        Up</button>
+
+    </form>
+  </div>
+</section>
